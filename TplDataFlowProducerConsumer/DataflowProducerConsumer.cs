@@ -61,19 +61,13 @@ namespace TplDataFlowProducerConsumer
 
             Console.WriteLine("::::::: FINAL RESULTS ::::::");
 
-            results.OrderBy(x => x).Select(x => 
-            {
-                Console.WriteLine(x);
-                return x;
-            }).ToArray();
+            foreach (var item in results.OrderBy(x => x))
+                Console.WriteLine(item);
 
             Console.WriteLine("::::::: IGNORED ITEMS ::::::");
 
-            duplicated.OrderBy(x => x).Select(x =>
-            {
-                Console.WriteLine(x);
-                return x;
-            }).ToArray();
+            foreach (var item in duplicated.OrderBy(x => x))
+                Console.WriteLine(item);
 
             Console.Read();
         }
