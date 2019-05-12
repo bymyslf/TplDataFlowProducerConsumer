@@ -51,7 +51,9 @@ namespace TplDataFlowProducerConsumer
                 else
                     results.Add(x);
             }
-            , new ExecutionDataflowBlockOptions { BoundedCapacity = 1, });
+            // BoundedCapacity also works
+            //, new ExecutionDataflowBlockOptions { BoundedCapacity = 1, });
+            , new ExecutionDataflowBlockOptions { MaxDegreeOfParallelism = 1, });
 
             queue.LinkTo(consumer, new DataflowLinkOptions { PropagateCompletion = true, });
 
